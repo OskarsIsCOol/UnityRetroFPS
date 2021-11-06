@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public float hp = 50f;
+    public float hp = 100f;
     public AudioSource audiosrc;
     public AudioClip hurtsfx;
     public int crntsprite = 0;
     public Sprite[] sprt;
     public SpriteRenderer sprtrender;
-    public float ls = 0.5f;
+    public float ls = 1f;
     
     //to render directions (the most optimized thing in this enemy script lol).
     public void Update()
