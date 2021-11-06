@@ -60,8 +60,8 @@ public class Target : MonoBehaviour
     //taking damage and playing sound accordingly.
     public void TakeDamage (float amount)
     {
-
         audiosrc.PlayOneShot(hurtsfx);
+        crntsprite += 8;
         StartCoroutine(hurtie());
         hp -= amount;
         if (hp <= 0f)
@@ -75,21 +75,11 @@ public class Target : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //hurt ienumerator (real big pain in the ass as delay is fucked).
+    //hurt ienumerator (now better but like it sucks ass kinda because when you are on back of an enemy, it gets hurt and is +4 but then goes
+    //back to -4 which sucks i guess and now i have to figure this shit out). >:(
     public IEnumerator hurtie()
     {
-
-        if(hurt == true)
-        {
-            crntsprite += 8;
-        }
-        hurt = true;
         yield return new WaitForSeconds(ls);
-        hurt = false;
-
-        if (hurt == false)
-        {
-            crntsprite -=8;
-        }
+        crntsprite -= 8;
     }
 }

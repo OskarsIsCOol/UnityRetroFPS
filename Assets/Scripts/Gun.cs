@@ -16,7 +16,6 @@ public class Gun : MonoBehaviour
     private float nextTimeToFire = 0f;
     public Animator anim;
     public float waitTime = 1.0f;
-    public GameObject camer;
 
     void Update()
     {
