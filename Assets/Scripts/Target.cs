@@ -10,7 +10,6 @@ public class Target : MonoBehaviour
     public int crntsprite = 0;
     public Sprite[] sprt;
     public SpriteRenderer sprtrender;
-    public bool hurt = false;
     public float ls = 0.5f;
     
     //to render directions (the most optimized thing in this enemy script lol).
@@ -61,7 +60,6 @@ public class Target : MonoBehaviour
     public void TakeDamage (float amount)
     {
         audiosrc.PlayOneShot(hurtsfx);
-        crntsprite += 8;
         StartCoroutine(hurtie());
         hp -= amount;
         if (hp <= 0f)
@@ -75,10 +73,10 @@ public class Target : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //hurt ienumerator (now better but like it sucks ass kinda because when you are on back of an enemy, it gets hurt and is +4 but then goes
-    //back to -4 which sucks i guess and now i have to figure this shit out). >:(
+    //hurt ienumerator (better, (and hopefully) finished version).
     public IEnumerator hurtie()
     {
+        crntsprite += 8;
         yield return new WaitForSeconds(ls);
         crntsprite -= 8;
     }
